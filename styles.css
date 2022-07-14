@@ -1,0 +1,23 @@
+body{
+    background-color: rgba(3, 0, 0, 0.637);
+    color: white;
+}
+
+body >* {
+    margin: 0 auto;
+}
+.container{
+    text-align: center;
+    border: 2px solid white;
+}
+
+ul{
+    padding: 2em ;
+}
+li{
+    list-style: none;
+    padding: 1em;
+    background-color: white;
+    color: blue;
+    border: 1px solid black;
+}

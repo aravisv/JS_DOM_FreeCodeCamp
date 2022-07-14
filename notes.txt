@@ -1,0 +1,6 @@
+Document Object Model
+tree of nodes
+
+document.querySelector();
+->selects the first div/class/tag that the parser encounters 
+

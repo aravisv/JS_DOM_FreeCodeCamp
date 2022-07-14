@@ -1,0 +1,1 @@
+const title = document.querySelector("#main-heading").style.color = "white";
