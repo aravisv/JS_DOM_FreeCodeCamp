@@ -4,3 +4,22 @@ tree of nodes
 document.querySelector();
 ->selects the first div/class/tag that the parser encounters 
 
+css:	font-size
+js:		fontSize
+
+const items = document.querySelectorAll(".class-name");
+for( let i=0; i<items.length; i++){
+	items[i].style.fontSize = "2em";
+}
+
+innerHTML
+	includes HTML content itself. tags, classes, text...
+innerText
+	just the text
+textContent
+	text. includes multiple spaces, new line
+	
+better to avoid innerHTML for security reasons
+innerText is preferred
+
+setAttribute('attribute-name','value');	
