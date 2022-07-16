@@ -2,7 +2,7 @@ Document Object Model
 tree of nodes
 
 document.querySelector();
-->selects the first div/class/tag that the parser encounters 
+//selects the first div/class/tag that the parser encounters 
 
 css:	font-size
 js:		fontSize
@@ -11,6 +11,10 @@ const items = document.querySelectorAll(".class-name");
 for( let i=0; i<items.length; i++){
 	items[i].style.fontSize = "2em";
 }
+
+childObject = document.createElement('html-tag');
+parentObject.append(childObject);
+childObject.remove();
 
 innerHTML
 	includes HTML content itself. tags, classes, text...
@@ -23,3 +27,78 @@ better to avoid innerHTML for security reasons
 innerText is preferred
 
 setAttribute('attribute-name','value');	
+removeAttribute('attribute-name');
+getAttribute('attribute-name');		// returns element's first attribute which qualifies to attribute-name. else null
+
+.classList.add('class-name');
+.classList.contains('class-name');	//boolean output
+.classList.remove('class-name');
+
+html attributes such as style,class,id are considered node in DOM heirarchy.
+but no parent-child relationship.
+accessed as properties of the parent node that contains them
+
+parentElement vs parentNode
+
+.childNodes;
+considers space, new line in HTML to be another child
+
+.children
+only the html elements considered
+
+.nextSibling & .previousSibling 	//nodes
+.nextElementSibling & .previousElementSibling	//elements
+
+
+HTML:
+<button onclick="function/action_to_be_performed">button_text</button>
+
+JS:
+element.addEventListener("click",function);
+
+if both event listeners are added, first HTML will execute. then JS
+
+
+use <script defer src=""></script> in order to put the script tag in the head section of html. but to execute the script after HTML parsing.
+so that the script has access to complete DOM.
+
+https://levelup.gitconnected.com/all-about-script-87fea475b976
+This Boolean attribute is set to indicate to a browser that the script is meant to be executed after the document has been parsed, but before firing DOMContentLoaded.
+Scripts with the defer attribute will prevent the DOMContentLoaded event from firing until the script has loaded and finished evaluating.
+This attribute must not be used if the src attribute is absent (i.e. for inline scripts), in this case it would have no effect.
+To achieve a similar effect for dynamically inserted scripts use async="false" instead. Scripts with the defer attribute will execute in the order in which they appear in the document.
+
+Event propogation
+---------------
+1) event capturing
+2) target
+3) event bubbling
+
+
+addEventListener("",function(variableName){
+	console.log(variableName);	//variableName is for eventListenerObject
+}
+
+[
+var temp;
+console.log( temp = 'meow');
+//this will assign as well as print meow
+]
+
+addEventListener("",fn,true);		//capturing phase
+addEventListener("",fn,false);		//bubbling phase. default
+
+addEventListener("",fn,{once:true});		//this eventListener will execute only once
+
+eventListenerObject.stopPropagation();		//stops traversing at this point. this will be the last, which will be traversed
+
+eventListenerObject.preventDefault();		//this will prevent the default functionality of the html tag. for example, if we use it on anchor tag, it wont redirect to other page.
+
+event delegation
+----------------
+add single event listener to parent. it shall apply to all child elements and also future childs.
+
+target.matches(selector);		//returns boolean if any of the selector is available in that html tag
+
+
+
